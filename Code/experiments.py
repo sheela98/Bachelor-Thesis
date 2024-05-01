@@ -5,7 +5,6 @@ import statistics
 import pickle
 import csv
 import numpy as np
-import sesum.sr
 import cotengra as ctg
 import opt_einsum as oe
 import os
@@ -46,6 +45,7 @@ def get_input(format_string, arguments):
 
 
 def get_result_t(ppath, pid, problems, alg):
+    global optimizer
     with open(ppath + problems[pid], 'rb') as file:
         format_string, l = pickle.load(file)
 
@@ -54,18 +54,15 @@ def get_result_t(ppath, pid, problems, alg):
     minimize = "flops"
     seed = random.randint(0, 1000000000)
 
-    if alg == "SesumGreedy":
-        optimizer = sesum.sr.CGreedy(seed=seed, minimize=minimize, max_repeats=max_repeats, max_time=max_time,
-                                         progbar=False, threshold_optimal=12, algorithm="greedy")
-    elif alg == "SesumKaHyPar":
-        optimizer = sesum.sr.CGreedy(seed=seed, minimize=minimize, max_repeats=max_repeats, max_time=max_time,
-                                         progbar=False, threshold_optimal=12, algorithm="kahypar")
+    if alg == "OurGreedy":
+        optimizer = CGreedy(seed=seed, minimize=minimize, max_repeats=max_repeats, max_time=max_time,
+                            progbar=False, threshold_optimal=12)
     elif alg == "CotengraGreedy":
         optimizer = ctg.HyperOptimizer(minimize=minimize, max_repeats=max_repeats, max_time=max_time, progbar=False,
-                                           methods="greedy")
+                                       methods="greedy")
     elif alg == "CotengraKaHyPar":
         optimizer = ctg.HyperOptimizer(minimize=minimize, max_repeats=max_repeats, max_time=max_time, progbar=False,
-                                           methods="kahypar")
+                                       methods="kahypar")
 
     tic = time.time()
     if alg == "OERandomGreedy":
@@ -102,12 +99,9 @@ def get_result_p(ppath, pid, problems, alg):
     minimize = "flops"
     seed = random.randint(0, 1000000000)
 
-    if alg == "SesumGreedy":
-        optimizer = sesum.sr.CGreedy(seed=seed, minimize=minimize, max_repeats=max_repeats, progbar=False,
-                                     threshold_optimal=12, algorithm="greedy")
-    elif alg == "SesumKaHyPar":
-        optimizer = sesum.sr.CGreedy(seed=seed, minimize=minimize, max_repeats=max_repeats, progbar=False,
-                                     threshold_optimal=12, algorithm="kahypar")
+    if alg == "OurGreedy":
+        optimizer = CGreedy(seed=seed, minimize=minimize, max_repeats=max_repeats, progbar=False,
+                            threshold_optimal=12)
     elif alg == "CotengraGreedy":
         optimizer = ctg.HyperOptimizer(minimize=minimize, max_repeats=max_repeats, progbar=False, methods="greedy")
 
@@ -181,4 +175,3 @@ def create_table(file_name, ppath, problems, alg, ttype):
         writer.writerows(results)
 
     return results
-

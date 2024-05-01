@@ -1,5 +1,5 @@
 
-
+# Model Counting Problem File Names
 model_counting = [
     "mc2023_023.pkl",
     "mc2023_025.pkl",
@@ -13,7 +13,7 @@ model_counting = [
     "wmc_2022_105.pkl",
 ]
 
-
+# Quantum Circuit Problem File Names
 quantum_circuits = [
     "qft_circuit-13.pkl",
     "qft_circuit-14.pkl",
@@ -27,7 +27,7 @@ quantum_circuits = [
     "rand_supremacy2d-(2, 7, 2).pkl",
 ]
 
-
+# Graph Problem File Names
 graphs = [
     'blasted_case_56.pkl',
     'or-70-20-2-UC-10.pkl',
@@ -41,7 +41,7 @@ graphs = [
     'square_lattices-09.pkl',
 ]
 
-
+# Language Model Problem File Names
 language_models = [
     "tensor_lm_batch_likelihood_brackets_random_depth_3_axis_size_8.pkl",
     "tensor_lm_batch_likelihood_brackets_random_depth_3_axis_size_12.pkl",
@@ -55,7 +55,7 @@ language_models = [
     "tensor_lm_p_first_and_last_brackets_random_depth_4_axis_size_16.pkl",
 ]
 
-
+# Cost Functions
 cost_functions = [
     "cost_balanced_boltzmann<T>",     # 0
     "cost_boltzmann<T>",              # 1

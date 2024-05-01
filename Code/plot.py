@@ -22,12 +22,10 @@ def get_data(file, t, x, category, spec):
                 if row[0] == 'OEGreedy':
                     element = math.pow(10, float(row[2]))
                     baseline.append(element)
-                if row[0] == 'SesumGreedy':
+                if row[0] == 'OurGreedy':
                     x += 5
                     x_data.append(x)
                     SGreedy_data.append(float(row[2]))
-                elif row[0] == 'SesumKaHyPar':
-                    SKaHyPar_data.append(float(row[2]))
                 elif row[0] == 'CotengraGreedy':
                     CtgGreedy_data.append(float(row[2]))
                 elif row[0] == 'CotengraKaHyPar':
@@ -37,12 +35,10 @@ def get_data(file, t, x, category, spec):
             else:
                 if row[0] == 'OEGreedy':
                     baseline.append(float(row[1]))
-                if row[0] == 'SesumGreedy':
+                if row[0] == 'OurGreedy':
                     x += 5
                     x_data.append(x)
                     SGreedy_data.append(float(row[1]))
-                elif row[0] == 'SesumKaHyPar':
-                    SKaHyPar_data.append(float(row[1]))
                 elif row[0] == 'CotengraGreedy':
                     CtgGreedy_data.append(float(row[1]))
                 elif row[0] == 'CotengraKaHyPar':
@@ -109,7 +105,6 @@ def read_data(file, store, title, t, spec):
     if spec == "flops":
         plt.scatter(x=x_data_mc, y=baseline_mc, s=12, marker='*', color='#508CA4')
     plt.scatter(x=x_data_mc, y=y_data_mc[0], s=12, marker='d', color='#1D2D44')
-    #plt.scatter(x=x_data_mc, y=y_data_mc[1],s=12,  marker='s', color='#274156')
     plt.scatter(x=x_data_mc, y=y_data_mc[2], s=12, marker='v', color='#CC7178')
     plt.scatter(x=x_data_mc, y=y_data_mc[3], s=12, marker='^', color='#89023E')
     if t != "timeout":
@@ -120,7 +115,6 @@ def read_data(file, store, title, t, spec):
     if spec == "flops":
         plt.scatter(x=x_data_qc, y=baseline_qc, s=12, marker='*', label='OEGreedy', color='#508CA4')
     plt.scatter(x=x_data_qc, y=y_data_qc[0], s=12, label='$\mathbf{OurGreedy}$', marker='d', color='#1D2D44')
-    #plt.scatter(x=x_data_qc, y=y_data_qc[1], s=12, label='SesumKaHyPar', marker='s', color='#274156')
     plt.scatter(x=x_data_qc, y=y_data_qc[2], s=12, label='CotengraGreedy', marker='v', color='#CC7178')
     plt.scatter(x=x_data_qc, y=y_data_qc[3], s=12, label='CotengraKaHyPar', marker='^', color='#89023E')
     if t != "timeout":
@@ -130,7 +124,6 @@ def read_data(file, store, title, t, spec):
     if spec == "flops":
         plt.scatter(x=x_data_gp, y=baseline_gp, s=12, marker='*', color='#508CA4')
     plt.scatter(x=x_data_gp, y=y_data_gp[0], s=12, marker='d', color='#1D2D44')
-    #plt.scatter(x=x_data_gp, y=y_data_gp[1], s=12, marker='s', color='#274156')
     plt.scatter(x=x_data_gp, y=y_data_gp[2], s=12, marker='v', color='#CC7178')
     plt.scatter(x=x_data_gp, y=y_data_gp[3], s=12, marker='^', color='#89023E')
     if t != "timeout":
@@ -140,7 +133,6 @@ def read_data(file, store, title, t, spec):
     if spec == "flops":
         plt.scatter(x=x_data_lm, y=baseline_lm, s=12, marker='*', color='#508CA4')
     plt.scatter(x=x_data_lm, y=y_data_lm[0], s=12, marker='d', color='#1D2D44')
-    #plt.scatter(x=x_data_lm, y=y_data_lm[1], s=12, marker='s', color='#274156')
     plt.scatter(x=x_data_lm, y=y_data_lm[2], s=12, marker='v', color='#CC7178')
     plt.scatter(x=x_data_lm, y=y_data_lm[3], s=12, marker='^', color='#89023E')
     if t != "timeout":
