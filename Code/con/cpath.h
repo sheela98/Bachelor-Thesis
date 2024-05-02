@@ -2061,7 +2061,6 @@ GreedyResult greedy_exec(const Expression<T>& expression, uint64_t seed = 0, uin
       cost_memory_removed_jitter<T>,  // 6
       cost_batch_balanced<T>          // 7
   };
-fprintf(stderr, "cost_function_id: %d\n", cost_function_id);
       if(cost_function_id >= 0){
         if(cost_function_id >= int(cost_functions.size())){
             throw std::runtime_error("ERROR: Cost function id is '" + std::to_string(cost_function_id) + "', but is must be less than " + std::to_string(cost_functions.size()) + ".");

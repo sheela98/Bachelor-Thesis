@@ -3,6 +3,7 @@ import math
 
 import matplotlib.pyplot as plt
 
+
 def get_data(file, t, x, category, spec):
     with open(file, newline='') as csvfile:
         reader = csv.reader(csvfile)
@@ -45,7 +46,6 @@ def get_data(file, t, x, category, spec):
                     CtgKaHyPar_data.append(float(row[1]))
                 elif row[0] == 'OERandomGreedy':
                     OeRGreedy_data.append(float(row[1]))
-
 
     for i in range(len(baseline)):
         if spec == "speedup":
@@ -90,6 +90,7 @@ def get_data(file, t, x, category, spec):
 
     return x_data, y_data, baseline
 
+
 def read_data(file, store, title, t, spec):
     category = "mc"
     x_data_mc, y_data_mc, baseline_mc = get_data(file[0], t, 0, category, spec)
@@ -100,7 +101,6 @@ def read_data(file, store, title, t, spec):
     category = "lm"
     x_data_lm, y_data_lm, baseline_lm = get_data(file[3], t, 150, category, spec)
 
-
     # Model Counting
     if spec == "flops":
         plt.scatter(x=x_data_mc, y=baseline_mc, s=12, marker='*', color='#508CA4')
@@ -109,7 +109,6 @@ def read_data(file, store, title, t, spec):
     plt.scatter(x=x_data_mc, y=y_data_mc[3], s=12, marker='^', color='#89023E')
     if t != "timeout":
         plt.scatter(x=x_data_mc, y=y_data_mc[4], s=12, marker='p', color='#BFD7EA')
-
 
     # Qanutum Circuits
     if spec == "flops":
@@ -146,7 +145,6 @@ def read_data(file, store, title, t, spec):
         for sublist in [y_data_mc, y_data_qc, y_data_gp, y_data_lm]:
             y_data.extend(sublist[0])
         plt.plot(x_data, y_data, linewidth=0.7, color='#1D2D44')
-
 
     # Add a horizontal line at y=1
     if spec == "speedup":
@@ -189,50 +187,44 @@ def read_data(file, store, title, t, spec):
 
 
 if __name__ == '__main__':
-
-    
     # Plot 128 paths - time
-    file_mc = "/Users/sheela_1/Documents/7_WS_23/Bachelorarbeit/Greedy-Path/Code/cgreedy_v07/results_mc_128paths.csv"
-    file_qc = "/Users/sheela_1/Documents/7_WS_23/Bachelorarbeit/Greedy-Path/Code/cgreedy_v07/results_qc_128paths.csv"
-    file_gp = "/Users/sheela_1/Documents/7_WS_23/Bachelorarbeit/Greedy-Path/Code/cgreedy_v07/results_gp_128paths.csv"
-    file_lm = "/Users/sheela_1/Documents/7_WS_23/Bachelorarbeit/Greedy-Path/Code/cgreedy_v07/results_lm_128paths.csv"
+    file_mc = "Results/Tables/results_mc_128paths.csv"
+    file_qc = "Results/Tables/results_qc_128paths.csv"
+    file_gp = "/Results/Tables/results_gp_128paths.csv"
+    file_lm = "Results/Tables/results_lm_128paths.csv"
     files = [file_mc, file_qc, file_gp, file_lm]
-    
-    store = "plot_128p_time.svg"
+
+    store = "Results/Graphics/plot_128p_time.svg"
     title = "Time for the computation of 128 paths"
     t = "128 paths"
     spec = "time"
 
     read_data(files, store, title, t, spec)
-    
 
     # Plot 128 paths - flops
-    file_mc = "/Users/sheela_1/Documents/7_WS_23/Bachelorarbeit/Greedy-Path/Code/cgreedy_v07/results_mc_128paths.csv"
-    file_qc = "/Users/sheela_1/Documents/7_WS_23/Bachelorarbeit/Greedy-Path/Code/cgreedy_v07/results_qc_128paths.csv"
-    file_gp = "/Users/sheela_1/Documents/7_WS_23/Bachelorarbeit/Greedy-Path/Code/cgreedy_v07/results_gp_128paths.csv"
-    file_lm = "/Users/sheela_1/Documents/7_WS_23/Bachelorarbeit/Greedy-Path/Code/cgreedy_v07/results_lm_128paths.csv"
+    file_mc = "Results/Tables/results_mc_128paths.csv"
+    file_qc = "Results/Tables/results_qc_128paths.csv"
+    file_gp = "Results/Tables/results_gp_128paths.csv"
+    file_lm = "Results/Tables/results_lm_128paths.csv"
     files = [file_mc, file_qc, file_gp, file_lm]
 
-    
-    store = "plot_128p_flops.svg"
+    store = "Results/Graphics/plot_128p_flops.svg"
     title = "Results for the computation of 128 paths"
     t = "128 paths"
     spec = "flops"
 
     read_data(files, store, title, t, spec)
-    
 
-    # Plot Timeout    
-    file_mc = "/Users/sheela_1/Documents/7_WS_23/Bachelorarbeit/Greedy-Path/Code/cgreedy_v07/results_mc_timeout.csv"
-    file_qc = "/Users/sheela_1/Documents/7_WS_23/Bachelorarbeit/Greedy-Path/Code/cgreedy_v07/results_qc_timeout.csv"
-    file_gp = "/Users/sheela_1/Documents/7_WS_23/Bachelorarbeit/Greedy-Path/Code/cgreedy_v07/results_gp_timeout.csv"
-    file_lm = "/Users/sheela_1/Documents/7_WS_23/Bachelorarbeit/Greedy-Path/Code/cgreedy_v07/results_lm_timeout.csv"
+    # Plot Timeout
+    file_mc = "Results/Tables/results_mc_timeout.csv"
+    file_qc = "Results/Tables/results_qc_timeout.csv"
+    file_gp = "Results/Tables/results_gp_timeout.csv"
+    file_lm = "Results/Tables/results_lm_timeout.csv"
     files = [file_mc, file_qc, file_gp, file_lm]
 
-    store = "plot_t_flops.svg"
+    store = "Results/Graphics/plot_t_flops.svg"
     title = "Results with timeout 1 second"
     t = "timeout"
     spec = "flops"
 
     read_data(files, store, title, t, spec)
-

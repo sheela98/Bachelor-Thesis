@@ -13,8 +13,8 @@ os.system("CC=gcc-13 CXX=g++-13 cythonize -i con/alg.pyx")
 from con.alg import CGreedy
 
 if __name__ == '__main__':
-    ppath = "/Users/sheela_1/Documents/7_WS_23/Bachelorarbeit/Code/einsum_problems/"
-    ppath_lm = "/Users/sheela_1/Documents/7_WS_23/Bachelorarbeit/Meeting_23_01_2024/Einsum_Problems_LM/"
+    ppath = "Problems/Einsum_Problems/"
+    ppath_lm = "Problems/Einsum_Problems_LM/"
 
     algorithms = ["OEGreedy", "SesumGreedy", "SesumKaHyPar", "CotengraGreedy", "CotengraKaHyPar", "OERandomGreedy"]
 
