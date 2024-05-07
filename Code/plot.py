@@ -57,7 +57,8 @@ def get_data(file, t, x, category, spec):
                 OeRGreedy_data[i] = baseline[i] / math.pow(10, OeRGreedy_data[i])
         elif spec == "flops":
             SGreedy_data[i] = math.pow(10, SGreedy_data[i])
-            SKaHyPar_data[i] = math.pow(10, SKaHyPar_data[i])
+            if i in range(len(SKaHyPar_data)):
+                SKaHyPar_data[i] = math.pow(10, SKaHyPar_data[i])
             if CtgGreedy_data != 50:
                 CtgGreedy_data[i] = math.pow(10, CtgGreedy_data[i])
             if CtgKaHyPar_data != 50:
@@ -165,7 +166,7 @@ def read_data(file, store, title, t, spec):
     # Logarithmic scale
     plt.yscale('log')
 
-    plt.xlabel('Test Problems', fontsize=10)
+    plt.xlabel('Problems', fontsize=10)
     if spec == "speedup":
         plt.ylabel('Speed-up', fontsize=10)
     elif spec == "flops":
@@ -190,7 +191,7 @@ if __name__ == '__main__':
     # Plot 128 paths - time
     file_mc = "Results/Tables/results_mc_128paths.csv"
     file_qc = "Results/Tables/results_qc_128paths.csv"
-    file_gp = "/Results/Tables/results_gp_128paths.csv"
+    file_gp = "Results/Tables/results_gp_128paths.csv"
     file_lm = "Results/Tables/results_lm_128paths.csv"
     files = [file_mc, file_qc, file_gp, file_lm]
 
@@ -228,3 +229,4 @@ if __name__ == '__main__':
     spec = "flops"
 
     read_data(files, store, title, t, spec)
+

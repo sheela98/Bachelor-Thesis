@@ -29,16 +29,16 @@ quantum_circuits = [
 
 # Graph Problem File Names
 graphs = [
-    'blasted_case_56.pkl',
-    'or-70-20-2-UC-10.pkl',
-    'planar_graphs-29.pkl',
-    'regular_graphs-12.pkl',
-    'regular_graphs-13.pkl',
-    'regular_graphs-14.pkl',
-    'regular_graphs-15.pkl',
-    'regular_graphs-31.pkl',
-    'sat-grid-pbl-20.pkl',
-    'square_lattices-09.pkl',
+    "blasted_case_56.pkl",
+    "or-70-20-2-UC-10.pkl",
+    "planar_graphs-29.pkl",
+    "regular_graphs-12.pkl",
+    "regular_graphs-13.pkl",
+    "regular_graphs-14.pkl",
+    "regular_graphs-15.pkl",
+    "regular_graphs-31.pkl",
+    "sat-grid-pbl-20.pkl",
+    "square_lattices-09.pkl",
 ]
 
 # Language Model Problem File Names

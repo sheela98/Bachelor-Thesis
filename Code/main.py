@@ -16,7 +16,7 @@ if __name__ == '__main__':
     ppath = "Problems/Einsum_Problems/"
     ppath_lm = "Problems/Einsum_Problems_LM/"
 
-    algorithms = ["OEGreedy", "SesumGreedy", "SesumKaHyPar", "CotengraGreedy", "CotengraKaHyPar", "OERandomGreedy"]
+    algorithms = ["OEGreedy", "OurGreedy", "CotengraGreedy", "CotengraKaHyPar", "OERandomGreedy"]
 
     """
     # Model Counting - 128 paths
