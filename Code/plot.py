@@ -3,6 +3,9 @@ import math
 
 import matplotlib.pyplot as plt
 
+# plot.py creates three different graphs of the results
+# from the experiments.
+# They are stored in "Results/Graphics/".
 
 def get_data(file, t, x, category, spec):
     with open(file, newline='') as csvfile:

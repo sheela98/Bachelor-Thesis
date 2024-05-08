@@ -1,3 +1,7 @@
+# probs.py contains the file names of the problems used stored in lists.
+# Four lists for the four categories: model_counting, quantum_circuits,
+# graphs and language models.
+# It also contains the names of the cost functions stored in a list.
 
 # Model Counting Problem File Names
 model_counting = [

@@ -12,6 +12,11 @@ import csv
 os.system("CC=gcc-13 CXX=g++-13 cythonize -i con/alg.pyx")
 from con.alg import CGreedy
 
+# main.py contains the code to execute the experiments.
+# For the different problems and different test cases (128 paths or timeout)
+# it computes the paths and stores the results including time, flops, avg size
+# and stores it in the respective csv files in "Results/Tables/".
+
 if __name__ == '__main__':
     ppath = "Problems/Einsum_Problems/"
     ppath_lm = "Problems/Einsum_Problems_LM/"
@@ -21,7 +26,7 @@ if __name__ == '__main__':
     """
     # Model Counting - 128 paths
 
-    file_name = "results_mc_128paths_testtest.csv"
+    file_name = "results_mc_128paths.csv"
     problem = model_counting
     t = "128 paths"
     print("Model Counting - 128 paths")

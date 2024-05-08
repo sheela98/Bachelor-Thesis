@@ -13,6 +13,11 @@ os.system("CC=gcc-13 CXX=g++-13 cythonize -i con/alg.pyx")
 from con.alg import CGreedy
 
 
+# experiments.py contains the code to execute the experiments for the different problems and algorithms.
+# It helps to create the csv tables to store the results of the experiments.
+# It is used in main.py.
+
+
 def get_sizes(einsum_notation, shapes):
     index_sizes = {}
     for einsum_index, shape in zip(einsum_notation.split("->")[0].split(","), shapes):

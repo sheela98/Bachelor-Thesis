@@ -10,6 +10,9 @@ import pickle
 os.system("CC=gcc-13 CXX=g++-13 cythonize -i con/alg.pyx")
 from con.alg import CGreedy
 
+# usage_demo.py shows how to compute and execute paths with our greedy algorithm
+# and provides an example.
+
 if __name__ == '__main__':
     # Path for the following problems: Quantum Circuits, Model Counting, Graph Problems
     ppath = "Problems/Einsum_Problems/"
@@ -19,7 +22,7 @@ if __name__ == '__main__':
     # Choose the problem and the id
     # Problems: model_counting, quantum_circuits, graphs, language_models
     # The problems are stored as lists with the respective names in probs.py.
-    problem = model_counting
+    problem = language_models
     pid = 0
 
     # Set parameters
@@ -28,7 +31,7 @@ if __name__ == '__main__':
     minimize = "flops"
     seed = random.randint(0, 1000000000)
 
-    with open(ppath + problem[pid], 'rb') as file:
+    with open(ppath_lm + problem[pid], 'rb') as file:
         format_string, l = pickle.load(file)
 
     # Initialize optimizer
