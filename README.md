@@ -8,6 +8,7 @@ This repository contains the code and documentation for my bachelor thesis, focu
 ## Content
 - Thesis - contains the pdf-File of the thesis
 - Code - contains the tool as well as the experiments
+  - Python files - including a demo of our greedy algorithm, the code for the experiments and to compute the plot of our results
   - Problems
     - Einsum_Problems_LM - contains 10 language model problems
     - Einsum_Problems.zip - a zip file of the other problem categories (10 each) model counting, quantum circuits and graph problems
