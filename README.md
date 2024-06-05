@@ -23,3 +23,16 @@ This repository contains the code and documentation for my bachelor thesis, focu
 - Tensor contraction
 - Contraction path algorithm
 - Greedy algorithm
+
+## PyPI
+
+You can get our algorithm called `cgreedy` also directly from PyPI at the following URL:
+[https://pypi.org/project/cgreedy/](https://pypi.org/project/cgreedy/)
+
+Install it using pip:
+
+```bash
+pip install cgreedy
+```
+
+On the PyPI website, you will also find example usage of cgreedy.
